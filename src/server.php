@@ -1,8 +1,9 @@
 <?php
-
+  $listen_port = '1617';
+  $sleep_time = 15; //seconds
   $clients = array();
   $socket = socket_create(AF_INET,SOCK_STREAM,SOL_TCP);
-  socket_bind($socket,'0.0.0.0','1617');
+  socket_bind($socket,'0.0.0.0',$listen_port);
   socket_listen($socket);
   socket_set_nonblock($socket);
   $foo = 0;
@@ -29,7 +30,7 @@
         
         echo "MSG BROADCASTED: [$msg]\n";
       }
-      sleep(5);
+      sleep($sleep_time);
       $foo++;
   }
 

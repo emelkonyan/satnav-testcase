@@ -1,7 +1,9 @@
 var net = require('net');
-
+var server_ip = '{{ server_ip }}';
+var port = 1617;
 var client = new net.Socket();
-client.connect(1617, '{{ server_ip }}', function() {
+
+client.connect(port, server_ip, function() {
 	console.log('Connected');
 });
 
