@@ -1,0 +1,31 @@
+---
+- name: Provision a client server
+  hosts: all
+  gather_facts: no 
+
+  tasks:
+  - name: Wait for the system go get online
+    wait_for_connection:
+      delay: 0
+      timeout: 600
+
+  - name: Copy client
+    template:
+      src: /app/src/client.js     
+      dest: /app/client.js
+      owner: ansible
+      group: ansible
+      mode: 0777
+
+  - name: Copy start script
+    copy:
+      src: /app/src/start_client.sh
+      dest: /app/start_client.sh
+      owner: ansible
+      group: ansible
+      mode: 0777
+      
+  - name: Run client
+    command: "bash /app/start_client.sh"
+   
+
