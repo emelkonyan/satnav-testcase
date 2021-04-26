@@ -3,7 +3,7 @@
 ## Design Diagram
 ![image](https://drive.google.com/uc?export=view&id=1A3Xz4cRKwP3Bm-FZ21mDOQrJgqbtMbQt)
 
-The solution is based on AWS-powered infrastucture, ansible and PHP/NodesdfJs.
+The solution is based on AWS-powered infrastucture, ansible and PHP/NodeJS.
 For simplification reasons values like IDs, usernames and passwords are harcoded - in a real-world exampled these should be kept in `.cfg` or `.env` files and vaults.
 
 The code is deployed into an `Orchestrator` instance, which is used to manage the rest of the infrastucture.
