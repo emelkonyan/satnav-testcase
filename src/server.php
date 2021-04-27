@@ -18,8 +18,9 @@
           $clients[] = $newc;
       }
       if (count($clients)) {
-        $msg = "[$hostname]Unit {$foo} started ....\n";
-        
+        $msg = "Unit {$foo} started ....\n";
+	$payload = ['sender' => $hostname, 'message' => $msg];
+	$payload = json_encode($payload);
         foreach ($clients AS $k => $v) {
           $writeResult = socket_write($v, $msg);
           if ( $writeResult === false) {
@@ -28,7 +29,7 @@
           }
         }
         
-        echo "MSG BROADCASTED: [$msg]\n";
+        echo "MSG BROADCASTED: [$payload]\n";
       }
       sleep($sleep_time);
       $foo++;
